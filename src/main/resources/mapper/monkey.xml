@@ -6,4 +6,8 @@
     <select id="selectMonkey" resultType="entity.Monkey">
       select * from monkey where id = #{id}
     </select>
+    <insert id="insertMonkey" parameterType="entity.Monkey">
+      insert into monkey (name, birthday, phone_number)
+          values (#{name}, #{birthday}, #{phoneNumber})
+    </insert>
 </mapper>
