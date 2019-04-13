@@ -3,10 +3,12 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="entity.Monkey">
-    <select id="selectMonkey" resultType="entity.Monkey">
+    <select id="selectMonkey" parameterType="java.lang.Integer"
+            resultType="entity.Monkey">
       select * from monkey where id = #{id}
     </select>
-    <insert id="insertMonkey" parameterType="entity.Monkey">
+    <insert id="insertMonkey" parameterType="entity.Monkey"
+            useGeneratedKeys="true" keyProperty="id" >
       insert into monkey (name, birthday, phone_number)
           values (#{name}, #{birthday}, #{phoneNumber})
     </insert>

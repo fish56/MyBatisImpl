@@ -4,13 +4,11 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.util.Date;
-
 @Getter @Setter
 @NoArgsConstructor
-public class Monkey {
+public class Article {
     private Integer id;
-    private String name;
-    private Integer phoneNumber;
-    private Date birthday;
+    private String title;
+    private Monkey author;
+    private String content;
 }

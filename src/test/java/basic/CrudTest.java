@@ -50,9 +50,14 @@ public class CrudTest {
         Monkey monkey = new Monkey();
         monkey.setName("Sun WuKong");
         int i = session.insert("insertMonkey", monkey);
-        session.commit();
-        System.out.println(i);
 
+        session.commit();
+        System.out.println(JSONObject.toJSONString(monkey));
+        // {"id":6,"name":"Sun WuKong"}
         session.close();
+    }
+
+    @Test
+    public void selectListMonkey2(){
     }
 }
