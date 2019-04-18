@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- namespace and sqlID should equals original name in Java -->
+<mapper namespace="dao.MonkeyDao">
+    <select id="getMonkeyById" parameterType="java.lang.Integer"
+            resultType="entity.Monkey">
+      select * from monkey where id = #{id}
+    </select>
+    <insert id="insertMonkey" parameterType="entity.Monkey"
+            useGeneratedKeys="true" keyProperty="id" >
+      insert into monkey (name, birthday, phone_number)
+          values (#{name}, #{birthday}, #{phoneNumber})
+    </insert>
+</mapper>

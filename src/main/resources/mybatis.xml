@@ -25,5 +25,6 @@
     <mappers>
         <mapper resource="mapper/monkey.xml"/>
         <mapper resource="mapper/article.xml"/>
+        <mapper resource="mapper/monkeyDao.xml"/>
     </mappers>
 </configuration>
