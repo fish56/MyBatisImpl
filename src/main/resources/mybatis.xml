@@ -3,14 +3,19 @@
         PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
-    <properties>
-        <property name="driver" value="com.mysql.cj.jdbc.Driver"/>
-        <property name="url" value="jdbc:mysql://localhost:3306/hello_mybatis"/>
+    <!-- define global variable-->
+    <properties resource="jdbc.properties"> <!--get properties from a file with classpath-->
         <property name="username" value="root"/>
     </properties>
     <settings>
+        <!-- log sql in console -->
         <setting name="logImpl" value="STDOUT_LOGGING"/>
+        <setting name="mapUnderscoreToCamelCase" value="true"/>
     </settings>
+    <typeAliases>
+        <!-- make an alias name for a java type -->
+        <typeAlias type="java.lang.Integer" alias="Integer"/>
+    </typeAliases>
     <environments default="development">
         <environment id="development">
             <transactionManager type="JDBC"/>
