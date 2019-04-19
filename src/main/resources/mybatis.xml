@@ -51,6 +51,8 @@
         <!-- resource: 从类路径下加载mapper配置文件 -->
         <mapper resource="mapper/monkey.xml"/>
         <mapper resource="mapper/article.xml"/>
-        <mapper resource="mapper/monkeyDao.xml"/>
+        <mapper resource="mapper/monkeyDaoParam.xml"/>
+        <mapper resource="mapper/monkeyDaoResultMap.xml"/>
+        <mapper resource="mapper/articleDaoDynamicSQL.xml"/>
     </mappers>
 </configuration>

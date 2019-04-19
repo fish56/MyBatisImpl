@@ -5,6 +5,7 @@ import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
+import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
@@ -56,13 +57,32 @@ public class MonkeyTest {
 
         Monkey monkey = new Monkey();
         monkey.setName("Sun WuKong");
-        int i = session.insert("insertMonkey", monkey);
+        int i = session.insert("entity.Monkey.insertMonkey", monkey);
 
         // 注意默认情况下，是需要显示的commit的
         session.commit();
         System.out.println(JSONObject.toJSONString(monkey));
+        // {"id":3,"name":"Sun WuKong"}
         // 这时候就可以从数据库中查询到新增的记录的了
+        // 同时我们也拿到了自增主键的值，因为我们在配置文件中配置了 useGeneratedKeys="true"
 
+        Assert.assertNotNull(monkey.getId());
+        session.close();
+    }
+    @Test
+    public void insertMonkeyWithoutUseGeneratedKeys(){
+        SqlSession session = factory.openSession();
+
+        Monkey monkey = new Monkey();
+        monkey.setName("Sun WuKong");
+        int i = session.insert("insertMonkeyWithoutUseGeneratedKeys", monkey);
+
+        session.commit();
+        System.out.println(JSONObject.toJSONString(monkey));
+        // {"name":"Sun WuKong"}
+        // 这里我们没有拿到自增主键的值
+
+        Assert.assertNull(monkey.getId());
         session.close();
     }
 
@@ -76,22 +96,7 @@ public class MonkeyTest {
 
         // 前面将autoCommit设置为true，这里就不用手动提交了
         // session.commit();
-
-        session.close();
-    }
-
-    @Test(expected = org.apache.ibatis.exceptions.PersistenceException.class)
-    public void insertMonkeyBug(){
-        SqlSession session = factory.openSession();
-
-        Monkey monkey = new Monkey();
-        monkey.setName("Sun WuKong");
-
-        // 应为mapper文件中有不止一个id为insertMonkey的SQL片段
-        // 为了避免歧义，必须用 namespace + id 来引用
-        int i = session.insert("insertMonkey", monkey);
-
-        session.commit();
+        Assert.assertEquals(1, i);
         session.close();
     }
 }

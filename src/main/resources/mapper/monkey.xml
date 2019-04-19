@@ -4,18 +4,30 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="entity.Monkey">
     <!--
-    parameterType, 执行session.selectOne时传入的参数类型
-    resultType 返回值映射的类型
+    parameterType：执行session.selectOne时传入的参数类型
+
+    resultType： 返回值映射的类型。
+      注意：即使返回的是List，依旧只需要写元素的类型
+
     #{} 即prepareStatement时候的占位符
+
     -->
     <select id="selectMonkey" parameterType="java.lang.Integer"
             resultType="entity.Monkey">
       select * from monkey
       where id = #{id}
     </select>
+
+    <!-- 插入数据 -->
     <insert id="insertMonkey" parameterType="entity.Monkey"
             useGeneratedKeys="true" keyProperty="id" >
       insert into monkey (name, birthday, phone_number)
           values (#{name}, #{birthday}, #{phoneNumber})
     </insert>
+    <insert id="insertMonkeyWithoutUseGeneratedKeys"
+            parameterType="entity.Monkey" >
+      insert into monkey (name, birthday, phone_number)
+          values (#{name}, #{birthday}, #{phoneNumber})
+    </insert>
+
 </mapper>

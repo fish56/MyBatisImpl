@@ -8,10 +8,10 @@ create table article(
   foreign key (author_id) references monkey(id)
 );
 
-insert into article(title, author_id, content) VALUES ('a title', 99999, 'dd');
+insert into article(title, author_id, content) VALUES ('a title', 99999, 'content');
 -- failed, author_id not exist
 
-insert into article(title, author_id, content) VALUES ('a title', 1, 'dd');
+insert into article(title, author_id, content) VALUES ('a title', 1, 'content');
 
 select * from article;
 

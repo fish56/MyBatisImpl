@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!--
+为了能够让MyBatis正确的帮我们创建实现dao.MonkeyDao接口的类
+  namespace 需要和接口的名称相同
+  sqlID 需要和方法的名称相同
+-->
+<mapper namespace="dao.MonkeyDao">
+    <select id="getMonkeyById" parameterType="Integer"
+            resultType="entity.Monkey">
+      select * from monkey where id = #{id}
+    </select>
+    <select id="getMonkeyList" parameterType="Integer"
+            resultType="entity.Monkey">
+      select * from monkey limit #{limit}
+    </select>
+    <insert id="insertMonkey" parameterType="entity.Monkey"
+            useGeneratedKeys="true" keyProperty="id">
+      insert into monkey (name, birthday, phone_number)
+          values (#{name}, #{birthday}, #{phoneNumber})
+    </insert>
+
+    <!-- 要想接受到Java方法调用时传递的参数，必须写成#{param1} #{param2} 的形式
+         MyBatis 会把方法的参数封装成Map类型，通过这种方式来获取-->
+    <select id="getMonkeysRangeById" resultType="entity.Monkey">
+      select * from monkey
+      where id > #{param1} and #{param2} > id
+    </select>
+
+    <!-- 或者我们可以在Java中通过注解来给方法的参数命名，让MyBatis智能的映射 -->
+    <select id="getMonkeysRangeByIdWithParamNames" resultType="entity.Monkey">
+      select * from monkey
+      where id > #{min} and #{max} > id
+    </select>
+
+    <!-- 可以直接接口Map类型的参数 -->
+    <select id="getMonkeysRangeByIdWithMappedParamNames" resultType="entity.Monkey">
+      select * from monkey
+      where id > ${min} and #{max} > id
+    </select>
+    <!-- Preparing: select * from monkey where id > 0 and ? > id
+         ${} 相当于字符替换；#{}则是preparedStatement的占位符
+    -->
+
+    <select id="getOneMonkeyFromRangeById" resultType="entity.Monkey">
+      select * from monkey
+      where id > ${min} and #{max} > id
+    </select>
+</mapper>

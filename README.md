@@ -7,3 +7,9 @@
 但其实它们之间独立性很好，可以选择性的阅读。
 
 建议clone本地后，用IDEA之类的IDE打开阅读。
+
+## 核心
+参数配置 ==》 动态SQL ==》 返回值映射
+
+
+https://www.bilibili.com/video/av34875242/

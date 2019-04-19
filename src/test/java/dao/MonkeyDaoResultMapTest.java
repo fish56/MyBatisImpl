@@ -2,20 +2,22 @@ package dao;
 
 import com.alibaba.fastjson.JSONObject;
 import entity.Monkey;
+import org.apache.ibatis.exceptions.TooManyResultsException;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
-import org.junit.AfterClass;
+import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
-import static org.junit.Assert.*;
-
-public class MonkeyDaoTest {
+public class MonkeyDaoResultMapTest {
     private static MonkeyDao monkeyDao;
 
     @BeforeClass
@@ -30,17 +32,16 @@ public class MonkeyDaoTest {
     }
 
     @Test
-    public void getMonkeyById(){
-        Monkey monkey = monkeyDao.getMonkeyById(1);
+    public void getMonkeyMapById(){
+        Map<String, Object> monkey = monkeyDao.getMonkeyMapById(1);
         System.out.println(JSONObject.toJSONString(monkey));
-        // {"birthday":612939600000,"id":1,"name":"Jon Snow","phoneNumber":4794062}
+        // {"birthday":612939600000,"name":"Jon Snow","phone_number":4794062,"id":1}
     }
+
     @Test
-    public void insertMonkey(){
-        Monkey monkey = new Monkey();
-        monkey.setName("Jon Snow");
-        Boolean res = monkeyDao.insertMonkey(monkey);
-        System.out.println(res);
-        // true
+    public void getMonkeyKeyMapById(){
+        Map<Integer, Monkey> monkey = monkeyDao.getMonkeyKeyMapById(1);
+        System.out.println(JSONObject.toJSONString(monkey));
+        // {1:{"birthday":612939600000,"name":"Jon Snow","phone_number":4794062,"id":1}}
     }
 }

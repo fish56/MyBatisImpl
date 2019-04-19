@@ -32,6 +32,7 @@ public class ArticleTest {
         System.out.println(JSONObject.toJSONString(article));
         // {"author":{"id":1,"name":"Jon Snow"},
         // "content":"dd","id":2,"title":"a title"}
+
         session.close();
     }
 
