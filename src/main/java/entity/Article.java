@@ -9,6 +9,9 @@ import lombok.Setter;
 public class Article {
     private Integer id;
     private String title;
-    private Monkey author;
     private String content;
+
+    // Monkey每个字段都是普通类型
+    // 而Article的author属性则是Monkey类型的
+    private Monkey author;
 }

@@ -3,10 +3,18 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="entity.Article">
+
+    <!-- 将数据库返回的每一行映射成一个Java对象
+         一个column对应一个property -->
     <resultMap id="articleResult" type="entity.Article">
+
+        <!-- id标签和result用法一样，但是id标签暗示了
+             这个字段是主键，有利于提高性能 -->
         <id property="id" column="id"/>
         <result property="title" column="title" />
         <result property="content" column="content" />
+
+        <!-- 每个association都是引用一个resultMap -->
         <association property="author" javaType="entity.Monkey">
             <id property="id" column="author_id"/>
             <result property="name" column="author_name" />

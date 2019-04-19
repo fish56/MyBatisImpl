@@ -5,10 +5,11 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.github.fish56</groupId>
-    <artifactId>MyBatisManual</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <artifactId>MyBatisImpl</artifactId>
+    <version>1.0</version>
 
     <dependencies>
+        <!-- MyBatis核心依赖 -->
         <dependency>
             <groupId>org.mybatis</groupId>
             <artifactId>mybatis</artifactId>

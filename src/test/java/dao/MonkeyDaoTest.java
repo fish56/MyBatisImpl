@@ -25,8 +25,7 @@ public class MonkeyDaoTest {
         SqlSessionFactory factory = new SqlSessionFactoryBuilder().build(is);
         SqlSession session = factory.openSession();
 
-        // get implementation of MonkeyDao from MyBatis
-        // wow, it is amazing!!!
+        // MyBatis能够根据配置文件自动的帮我们生成MonkeyDao的实现类
         monkeyDao = session.getMapper(MonkeyDao.class);
     }
 
@@ -34,6 +33,7 @@ public class MonkeyDaoTest {
     public void getMonkeyById(){
         Monkey monkey = monkeyDao.getMonkeyById(1);
         System.out.println(JSONObject.toJSONString(monkey));
+        // {"birthday":612939600000,"id":1,"name":"Jon Snow","phoneNumber":4794062}
     }
     @Test
     public void insertMonkey(){

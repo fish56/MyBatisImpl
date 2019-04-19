@@ -3,9 +3,15 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="entity.Monkey">
+    <!--
+    parameterType, 执行session.selectOne时传入的参数类型
+    resultType 返回值映射的类型
+    #{} 即prepareStatement时候的占位符
+    -->
     <select id="selectMonkey" parameterType="java.lang.Integer"
             resultType="entity.Monkey">
-      select * from monkey where id = #{id}
+      select * from monkey
+      where id = #{id}
     </select>
     <insert id="insertMonkey" parameterType="entity.Monkey"
             useGeneratedKeys="true" keyProperty="id" >

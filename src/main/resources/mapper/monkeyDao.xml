@@ -4,8 +4,9 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <!--
-namespace and sqlID should equals original name in Java.
-So MyBatis will auto implement these interface of us.
+为了能够让MyBatis正确的帮我们创建实现dao.MonkeyDao接口的类
+  namespace 需要和接口的名称相同
+  sqlID 需要和方法的名称相同
 -->
 <mapper namespace="dao.MonkeyDao">
     <select id="getMonkeyById" parameterType="Integer"

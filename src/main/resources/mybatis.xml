@@ -2,20 +2,28 @@
 <!DOCTYPE configuration
         PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<!-- MyBatis配置文件 -->
 <configuration>
-    <!-- define global variable-->
-    <properties resource="jdbc.properties"> <!--get properties from a file with classpath-->
+    <!-- 定义全局变量 -->
+    <properties resource="jdbc.properties">
+        <!--👆的是加载外部的properties文件 -->
         <property name="username" value="root"/>
     </properties>
+
+    <!-- 设置MyBatis的一些可选项 -->
     <settings>
-        <!-- log sql in console -->
+        <!-- 在控制台打印SQL语句 -->
         <setting name="logImpl" value="STDOUT_LOGGING"/>
+        <!-- 将下划线命名法映射为驼峰命名法-->
         <setting name="mapUnderscoreToCamelCase" value="true"/>
     </settings>
+
+    <!-- 给一个比较长的类名一个简短的别名 -->
     <typeAliases>
-        <!-- make an alias name for a java type -->
         <typeAlias type="java.lang.Integer" alias="Integer"/>
     </typeAliases>
+
+    <!-- 可以同时配置多个环境下设置 -->
     <environments default="development">
         <environment id="development">
             <transactionManager type="JDBC"/>
@@ -26,8 +34,21 @@
                 <property name="password" value=""/>
             </dataSource>
         </environment>
+        <environment id="production">
+            <transactionManager type="MANAGED"/>
+            <!-- POOLED/UNPOOLED/JNDI -->
+            <dataSource type="POOLED">
+                <property name="driver" value="${driver}"/>
+                <property name="url" value="${url}"/>
+                <property name="username" value="Jon"/>
+                <property name="password" value="123456"/>
+            </dataSource>
+        </environment>
     </environments>
+
+    <!-- 引用外部的mapper文件 -->
     <mappers>
+        <!-- resource: 从类路径下加载mapper配置文件 -->
         <mapper resource="mapper/monkey.xml"/>
         <mapper resource="mapper/article.xml"/>
         <mapper resource="mapper/monkeyDao.xml"/>
