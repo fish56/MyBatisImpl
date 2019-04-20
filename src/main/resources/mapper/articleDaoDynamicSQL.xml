@@ -18,4 +18,16 @@
       </where>
     </select>
 
+    <update id="updateArticlesWithCondition" parameterType="entity.Article">
+        update article
+        <set>
+            <if test="title != null">
+                title = #{title},
+            </if>
+            <if test="content != null">
+                content = #{content}
+            </if>
+        </set>
+        where author_id = #{id}
+    </update>
 </mapper>

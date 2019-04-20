@@ -6,4 +6,6 @@ import java.util.List;
 
 public interface ArticleDao {
     public List<Article> getArticleWithCondition(Article article);
+
+    public Integer updateArticlesWithCondition(Article article);
 }

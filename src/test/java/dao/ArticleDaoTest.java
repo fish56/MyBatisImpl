@@ -40,7 +40,8 @@ public class ArticleDaoTest {
         System.out.println(JSONObject.toJSONString(articles));
         // [...]
 
-        // 实际的SQL语句是这样的 select * from article WHERE title = ?
+        // 实际的SQL语句是这样的 select * from article WHERE title = ?=
+        // 可以看到，因为content为空，所以MyBatis的动态SQL就没有携带SQL分支语句
     }
 
     @Test
@@ -50,6 +51,19 @@ public class ArticleDaoTest {
         articleTemp.setContent("content");
         List<Article> articles = articleDao.getArticleWithCondition(articleTemp);
         System.out.println(JSONObject.toJSONString(articles));
+        // [...]
+
+        // 实际的SQL语句是这样的 select * from article WHERE title = ? and content = ?
+    }
+
+    @Test
+    public void updateArticlesWithCondition(){
+        Article articleTemp = new Article();
+        articleTemp.setTitle("a title");
+        articleTemp.setContent("content");
+        articleTemp.setId(1);
+        Integer res = articleDao.updateArticlesWithCondition(articleTemp);
+        System.out.println(res);
         // [...]
 
         // 实际的SQL语句是这样的 select * from article WHERE title = ? and content = ?

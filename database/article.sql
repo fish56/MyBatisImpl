@@ -21,3 +21,7 @@ from article
        left join monkey on article.author_id = monkey.id
 where article.id = 2
 ;
+
+update article
+set content = 'content'
+where author_id = 1;
