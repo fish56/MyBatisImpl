@@ -19,8 +19,14 @@ select
   article.id, title, content, monkey.name as author_name, monkey.id as author_id
 from article
        left join monkey on article.author_id = monkey.id
-where article.id = 2
+where true
+  and author_id = 1
+order by article.id desc
+limit 2
+offset 1
 ;
+
+
 
 update article
 set content = 'content'

@@ -68,4 +68,12 @@ public class ArticleDaoTest {
 
         // 实际的SQL语句是这样的 select * from article WHERE title = ? and content = ?
     }
+
+    @Test
+    public void getArticleListWithOrderAndPage(){
+        List<Article> articles = articleDao
+                .getArticleListWithOrderAndPage("id", 2,1);
+        System.out.println(JSONObject.toJSONString(articles));
+
+    }
 }

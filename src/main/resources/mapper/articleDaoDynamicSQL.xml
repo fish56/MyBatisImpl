@@ -18,6 +18,13 @@
       </where>
     </select>
 
+    <select id="getArticleListWithOrderAndPage" resultType="entity.Article">
+        select * from article
+        order by #{orderByField} desc
+        limit #{limit}
+        offset #{offset}
+    </select>
+
     <update id="updateArticlesWithCondition" parameterType="entity.Article">
         update article
         <set>

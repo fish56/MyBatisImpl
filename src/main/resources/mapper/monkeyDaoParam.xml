@@ -49,4 +49,9 @@
       select * from monkey
       where id > ${min} and #{max} > id
     </select>
+
+    <select id="getMonkeysByIds" resultType="entity.Monkey">
+      select * from monkey
+      where id = #{list[0]} or id = #{list[1]}
+    </select>
 </mapper>

@@ -38,4 +38,7 @@ public interface MonkeyDao {
     // 需要通过MapKey注解指明主键
     @MapKey("id")
     public Map<Integer, Monkey> getMonkeyKeyMapById(Integer id);
+
+    // 通过列表传递参数
+    public List<Monkey> getMonkeysByIds(List<Integer> ids);
 }

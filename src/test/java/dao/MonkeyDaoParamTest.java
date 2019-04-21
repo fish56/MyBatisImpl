@@ -94,4 +94,14 @@ public class MonkeyDaoParamTest {
         System.out.println(JSONObject.toJSONString(monkey));
         // [...]
     }
+
+    @Test
+    public void getMonkeysByIds(){
+        List<Integer> ids = new ArrayList<Integer>();
+        ids.add(1);
+        ids.add(2);
+        List<Monkey> monkeys = monkeyDao.getMonkeysByIds(ids);
+        System.out.println(JSONObject.toJSONString(monkeys));
+        // [...]
+    }
 }
