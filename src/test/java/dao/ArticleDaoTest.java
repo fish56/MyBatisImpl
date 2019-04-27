@@ -76,4 +76,11 @@ public class ArticleDaoTest {
         System.out.println(JSONObject.toJSONString(articles));
 
     }
+
+    @Test
+    public void selectArticleInfo(){
+        Map<String, String> map = articleDao.selectArticleInfo(1);
+        System.out.println(JSONObject.toJSONString(map));
+        // {"articleCountByAuthor":3}
+    }
 }

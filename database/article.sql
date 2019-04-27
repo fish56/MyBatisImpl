@@ -26,8 +26,10 @@ limit 2
 offset 1
 ;
 
-
-
 update article
 set content = 'content'
+where author_id = 1;
+
+select count(*) as countOfAnyAuthor
+from article
 where author_id = 1;

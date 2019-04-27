@@ -58,6 +58,20 @@ public class MonkeyDaoParamTest {
         monkey.setName("Jon Snow");
         Boolean res = monkeyDao.insertMonkey(monkey);
         System.out.println(res);
+        assertTrue(res);
+        // true
+    }
+
+    @Test
+    public void insertExistMonkey(){
+        // id为2的猴子已经存在了
+        // 再次插入应该抛出错误
+        Monkey monkey = new Monkey();
+        monkey.setId(2);
+        monkey.setName("Jon Snow");
+        Boolean res = monkeyDao.insertMonkey(monkey);
+        System.out.println(res);
+        assertFalse(res);
         // true
     }
 

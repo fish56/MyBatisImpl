@@ -37,4 +37,10 @@
         </set>
         where author_id = #{id}
     </update>
+
+
+    <select id="selectArticleInfo" parameterType="java.lang.Integer"
+            resultType="java.util.HashMap">
+      select count(*) as articleCountByAuthor from article where author_id = #{id};
+    </select>
 </mapper>
