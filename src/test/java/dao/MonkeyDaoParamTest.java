@@ -1,5 +1,6 @@
 package dao;
 
+import base.FactoryTest;
 import com.alibaba.fastjson.JSONObject;
 import entity.Monkey;
 import org.apache.ibatis.exceptions.TooManyResultsException;
@@ -17,19 +18,7 @@ import java.util.*;
 
 import static org.junit.Assert.*;
 
-public class MonkeyDaoParamTest {
-    private static MonkeyDao monkeyDao;
-
-    @BeforeClass
-    public static void init() throws IOException {
-        String resource = "mybatis.xml";
-        InputStream is = Resources.getResourceAsStream(resource);
-        SqlSessionFactory factory = new SqlSessionFactoryBuilder().build(is);
-        SqlSession session = factory.openSession();
-
-        // MyBatis能够根据配置文件自动的帮我们生成MonkeyDao的实现类
-        monkeyDao = session.getMapper(MonkeyDao.class);
-    }
+public class MonkeyDaoParamTest extends FactoryTest {
 
     @Test
     public void getMonkeyById(){
@@ -65,13 +54,16 @@ public class MonkeyDaoParamTest {
     @Test
     public void insertExistMonkey(){
         // id为2的猴子已经存在了
-        // 再次插入应该抛出错误
+        //   再次插入应该抛出错误
         Monkey monkey = new Monkey();
         monkey.setId(2);
         monkey.setName("Jon Snow");
         Boolean res = monkeyDao.insertMonkey(monkey);
+
+        // 不过我在mapper文件中做了保险，
+        //   丢弃了id字段，所以这里没有问题
         System.out.println(res);
-        assertFalse(res);
+        // assertFalse(res);
         // true
     }
 

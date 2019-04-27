@@ -1,5 +1,6 @@
 package dao;
 
+import base.FactoryTest;
 import com.alibaba.fastjson.JSONObject;
 import entity.Article;
 import entity.Monkey;
@@ -18,20 +19,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class ArticleDaoTest {
-    private static ArticleDao articleDao;
-
-    @BeforeClass
-    public static void init() throws IOException {
-        String resource = "mybatis.xml";
-        InputStream is = Resources.getResourceAsStream(resource);
-        SqlSessionFactory factory = new SqlSessionFactoryBuilder().build(is);
-        SqlSession session = factory.openSession();
-
-        // MyBatis能够根据配置文件自动的帮我们生成MonkeyDao的实现类
-        articleDao = session.getMapper(ArticleDao.class);
-    }
-
+public class ArticleDaoTest extends FactoryTest {
     @Test
     public void getArticleWithCondition(){
         Article articleTemp = new Article();

@@ -42,6 +42,7 @@ public class MonkeyCacheTest {
 
         // 第一次查询后，数据被缓存下来了
         // 第二次查询并没有向数据库中发起请求，
+        //   而是直接把缓存中的对象返回了
 
         session.close();
     }
@@ -56,12 +57,11 @@ public class MonkeyCacheTest {
         Monkey newMonkey = new Monkey();
         newMonkey.setName("Sun WuKong");
         session.insert("entity.Monkey.insertMonkey", newMonkey);
+        // 增删改会导致缓存失效
 
         Monkey monkey2 = session.selectOne("selectMonkey", 1);
-        // 对数据库发起了新的缓存
 
         Assert.assertNotSame(monkey, monkey2);
-        // 增删改会导致缓存失效
 
         session.close();
     }
@@ -86,18 +86,6 @@ public class MonkeyCacheTest {
 
     @Test
     public void cacheLevel2() {
-        SqlSession session = factory.openSession();
-
-        Monkey monkey = session.selectOne("selectMonkey", 1);
-        System.out.println(JSONObject.toJSONString(monkey));
-        // {"birthday":612939600000,"id":1,"name":"Jon Snow","phoneNumber":4794062}
-
-        Monkey monkey2 = session.selectOne("selectMonkey", 1);
-        System.out.println(JSONObject.toJSONString(monkey));
-
-        Assert.assertSame(monkey, monkey2);
-
-
-        session.close();
+        // todo
     }
 }
