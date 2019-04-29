@@ -15,6 +15,7 @@ import org.junit.Test;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -70,5 +71,16 @@ public class ArticleDaoTest extends FactoryTest {
         Map<String, String> map = articleDao.selectArticleInfo(1);
         System.out.println(JSONObject.toJSONString(map));
         // {"articleCountByAuthor":3}
+    }
+
+    @Test
+    public void selectArticlesByIds(){
+        List<Integer> ids = new ArrayList<Integer>();
+        ids.add(1);
+        ids.add(2);
+        ids.add(3);
+        List<Article> articles = articleDao.selectArticlesByIds(ids);
+        System.out.println(JSONObject.toJSONString(articles));
+        Assert.assertTrue(articles.size() > 0);
     }
 }

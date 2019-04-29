@@ -12,6 +12,9 @@ public interface ArticleDao {
     // 将结果映射成Map
     public Map<String, String> selectArticleInfo(Integer id);
 
+    // 通过ID来查询
+    public List<Article> selectArticlesByIds(List<Integer> ids);
+
     public Integer updateArticlesWithCondition(Article article);
 
     public List<Article> getArticleListWithOrderAndPage(

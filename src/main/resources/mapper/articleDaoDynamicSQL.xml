@@ -38,9 +38,18 @@
         where author_id = #{id}
     </update>
 
-
     <select id="selectArticleInfo" parameterType="java.lang.Integer"
             resultType="java.util.HashMap">
       select count(*) as articleCountByAuthor from article where author_id = #{id};
+    </select>
+
+    <select id="selectArticlesByIds" parameterType="java.util.List"
+            resultType="entity.Article">
+        select * from article
+        where id in
+        <foreach item="item" index="index" collection="list"
+                 open="(" separator="," close=")">
+            #{item}
+        </foreach>
     </select>
 </mapper>

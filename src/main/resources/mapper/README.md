@@ -56,3 +56,12 @@ insert update delete 比较简单，没什么好说的
 - offset
 - limit
 
+### foreach
+在使用foreach的时候最容易出错的就是collection属性，该属性是必须指定的，在不同情况 下，该属性的值是不一样的，主要有一下3种情况：
+
+1.     如果传入的是单参数且参数类型是一个List的时候，collection属性值为list
+
+2.     如果传入的是单参数且参数类型是一个array数组的时候，collection的属性值为array
+
+3.     如果传入的参数是多个的时候，我们就需要把它们封装成一个Map了，当然单参数也可以封装成map，实际上如果你在传入参数的时候，在breast里面也是会把它封装成一个Map的，map的key就是参数名，所以这个时候collection属性值就是传入的List或array对象在自己封装的map里面的key.
+

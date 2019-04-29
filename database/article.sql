@@ -33,3 +33,14 @@ where author_id = 1;
 select count(*) as countOfAnyAuthor
 from article
 where author_id = 1;
+
+select * from article
+where
+id = 1
+or id = 2
+or id = 3
+;
+
+select * from article
+where id in (2, 3, 4, 5)
+;
