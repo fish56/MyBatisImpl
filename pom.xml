@@ -9,6 +9,17 @@
     <version>1.0</version>
 
     <dependencies>
+        <dependency>
+            <groupId>com.github.jsqlparser</groupId>
+            <artifactId>jsqlparser</artifactId>
+            <version>1.2</version>
+        </dependency>
+        <dependency>
+            <!-- 分页插件 -->
+            <groupId>com.github.pagehelper</groupId>
+            <artifactId>pagehelper</artifactId>
+            <version>5.0.0</version>
+        </dependency>
         <!-- MyBatis核心依赖 -->
         <dependency>
             <groupId>org.mybatis</groupId>

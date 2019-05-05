@@ -30,4 +30,8 @@
       where article.id = #{id}
       ;
     </select>
+
+    <select id="selectArticles" resultType="entity.Article">
+      select * from article
+    </select>
 </mapper>
