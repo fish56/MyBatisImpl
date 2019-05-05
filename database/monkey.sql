@@ -14,6 +14,7 @@ insert into monkey(
 ) VALUES (
     'Jon Snow', 4794062, '1989-06-04');
 
+-- 下面的不用执行，只是展示常用的sql语句
 
 select * from monkey limit 30;
 

@@ -4,7 +4,7 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="entity.Article">
 
-    <!-- 将数据库返回的每一行映射成一个Java对象
+    <!-- 将数据库返回的每一行映射成一个Java POJO对象
          一个column对应一个property -->
     <resultMap id="articleResult" type="entity.Article">
 

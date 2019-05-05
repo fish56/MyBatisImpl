@@ -13,6 +13,8 @@ insert into article(title, author_id, content) VALUES ('a title', 99999, 'conten
 
 insert into article(title, author_id, content) VALUES ('a title', 1, 'content');
 
+-- 下面的不用执行，只是展示常用的sql语句
+
 select * from article;
 
 select

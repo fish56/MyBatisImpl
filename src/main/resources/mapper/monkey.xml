@@ -8,6 +8,7 @@
 
     resultType： 返回值映射的类型。
       注意：即使返回的是List，依旧只需要写元素的类型
+           这个resultType可以理解为每一行对应的类型，而不是返回结果集对应的类型
 
     #{} 即prepareStatement时候的占位符
 

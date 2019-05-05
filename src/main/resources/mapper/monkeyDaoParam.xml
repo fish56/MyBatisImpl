@@ -23,7 +23,7 @@
           values (#{name}, #{birthday}, #{phoneNumber})
     </insert>
 
-    <!-- 要想接受到Java方法调用时传递的参数，必须写成#{param1} #{param2} 的形式
+    <!-- 要想接受到Java方法调用时传递的多个参数，必须写成#{param1} #{param2} 的形式
          MyBatis 会把方法的参数封装成Map类型，通过这种方式来获取-->
     <select id="getMonkeysRangeById" resultType="entity.Monkey">
       select * from monkey
