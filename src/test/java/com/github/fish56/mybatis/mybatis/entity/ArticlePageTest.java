@@ -1,16 +1,11 @@
-package entity;
+package com.github.fish56.mybatis.mybatis.entity;
 
 import com.alibaba.fastjson.JSONObject;
+import com.github.fish56.mybatis.entity.Article;
 import com.github.pagehelper.PageHelper;
-import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
-import org.apache.ibatis.session.SqlSessionFactory;
-import org.apache.ibatis.session.SqlSessionFactoryBuilder;
-import org.junit.BeforeClass;
 import org.junit.Test;
 
-import java.io.IOException;
-import java.io.InputStream;
 import java.util.List;
 
 public class ArticlePageTest extends FactoryTest{

@@ -2,11 +2,11 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="entity.Article">
+<mapper namespace="com.github.fish56.mybatis.entity.Article">
 
     <!-- 将数据库返回的每一行映射成一个Java POJO对象
          一个column对应一个property -->
-    <resultMap id="articleResult" type="entity.Article">
+    <resultMap id="articleResult" type="com.github.fish56.mybatis.entity.Article">
 
         <!-- id标签和result用法一样，但是id标签暗示了
              这个字段是主键，有利于提高性能 -->
@@ -15,7 +15,7 @@
         <result property="content" column="content" />
 
         <!-- 每个association都是引用一个resultMap -->
-        <association property="author" javaType="entity.Monkey">
+        <association property="author" javaType="com.github.fish56.mybatis.entity.Monkey">
             <id property="id" column="author_id"/>
             <result property="name" column="author_name" />
         </association>
@@ -31,7 +31,7 @@
       ;
     </select>
 
-    <select id="selectArticles" resultType="entity.Article">
+    <select id="selectArticles" resultType="com.github.fish56.mybatis.entity.Article">
       select * from article
     </select>
 </mapper>

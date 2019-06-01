@@ -1,6 +1,7 @@
-package entity;
+package com.github.fish56.mybatis.mybatis.entity;
 
 import com.alibaba.fastjson.JSONObject;
+import com.github.fish56.mybatis.entity.Monkey;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -57,7 +58,7 @@ public class MonkeyTest {
 
         Monkey monkey = new Monkey();
         monkey.setName("Sun WuKong");
-        int i = session.insert("entity.Monkey.insertMonkey", monkey);
+        int i = session.insert("Monkey.insertMonkey", monkey);
 
         // 注意默认情况下，是需要显示的commit的
         session.commit();
@@ -92,7 +93,7 @@ public class MonkeyTest {
 
         Monkey monkey = new Monkey();
         monkey.setName("Sun WuKong");
-        int i = session.insert("entity.Monkey.insertMonkey", monkey);
+        int i = session.insert("Monkey.insertMonkey", monkey);
 
         // 前面将autoCommit设置为true，这里就不用手动提交了
         // session.commit();

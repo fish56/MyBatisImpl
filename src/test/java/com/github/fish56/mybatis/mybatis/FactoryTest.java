@@ -1,7 +1,7 @@
-package base;
+package com.github.fish56.mybatis.mybatis;
 
-import dao.ArticleDao;
-import dao.MonkeyDao;
+import com.github.fish56.mybatis.dao.ArticleDao;
+import com.github.fish56.mybatis.dao.MonkeyDao;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;

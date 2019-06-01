@@ -3,7 +3,7 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="dao.MonkeyDao">
+<mapper namespace="com.github.fish56.mybatis.dao.MonkeyDao">
     <!-- 将返回值映射为Map<String, Object>
          数据库的column和row value的映射
     -->

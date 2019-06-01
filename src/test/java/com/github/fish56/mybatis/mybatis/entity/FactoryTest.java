@@ -1,4 +1,4 @@
-package entity;
+package com.github.fish56.mybatis.mybatis.entity;
 
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSessionFactory;

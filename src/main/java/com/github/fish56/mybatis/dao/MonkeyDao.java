@@ -1,6 +1,6 @@
-package dao;
+package com.github.fish56.mybatis.dao;
 
-import entity.Monkey;
+import com.github.fish56.mybatis.entity.Monkey;
 import org.apache.ibatis.annotations.MapKey;
 import org.apache.ibatis.annotations.Param;
 

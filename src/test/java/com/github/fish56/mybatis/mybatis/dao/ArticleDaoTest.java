@@ -1,22 +1,12 @@
-package dao;
+package com.github.fish56.mybatis.mybatis.dao;
 
-import base.FactoryTest;
+import com.github.fish56.mybatis.mybatis.FactoryTest;
 import com.alibaba.fastjson.JSONObject;
-import entity.Article;
-import entity.Monkey;
-import org.apache.ibatis.exceptions.TooManyResultsException;
-import org.apache.ibatis.io.Resources;
-import org.apache.ibatis.session.SqlSession;
-import org.apache.ibatis.session.SqlSessionFactory;
-import org.apache.ibatis.session.SqlSessionFactoryBuilder;
+import com.github.fish56.mybatis.entity.Article;
 import org.junit.Assert;
-import org.junit.BeforeClass;
 import org.junit.Test;
 
-import java.io.IOException;
-import java.io.InputStream;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 

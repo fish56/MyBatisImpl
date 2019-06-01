@@ -8,16 +8,16 @@
   namespace 需要和接口的名称相同
   sqlID 需要和方法的名称相同
 -->
-<mapper namespace="dao.MonkeyDao">
+<mapper namespace="com.github.fish56.mybatis.dao.MonkeyDao">
     <select id="getMonkeyById" parameterType="Integer"
-            resultType="entity.Monkey">
+            resultType="com.github.fish56.mybatis.entity.Monkey">
       select * from monkey where id = #{id}
     </select>
     <select id="getMonkeyList" parameterType="Integer"
-            resultType="entity.Monkey">
+            resultType="com.github.fish56.mybatis.entity.Monkey">
       select * from monkey limit #{limit}
     </select>
-    <insert id="insertMonkey" parameterType="entity.Monkey"
+    <insert id="insertMonkey" parameterType="com.github.fish56.mybatis.entity.Monkey"
             useGeneratedKeys="true" keyProperty="id">
       insert into monkey (name, birthday, phone_number)
           values (#{name}, #{birthday}, #{phoneNumber})
@@ -25,19 +25,19 @@
 
     <!-- 要想接受到Java方法调用时传递的多个参数，必须写成#{param1} #{param2} 的形式
          MyBatis 会把方法的参数封装成Map类型，通过这种方式来获取-->
-    <select id="getMonkeysRangeById" resultType="entity.Monkey">
+    <select id="getMonkeysRangeById" resultType="com.github.fish56.mybatis.entity.Monkey">
       select * from monkey
       where id > #{param1} and #{param2} > id
     </select>
 
     <!-- 或者我们可以在Java中通过注解来给方法的参数命名，让MyBatis智能的映射 -->
-    <select id="getMonkeysRangeByIdWithParamNames" resultType="entity.Monkey">
+    <select id="getMonkeysRangeByIdWithParamNames" resultType="com.github.fish56.mybatis.entity.Monkey">
       select * from monkey
       where id > #{min} and #{max} > id
     </select>
 
     <!-- 可以直接接口Map类型的参数 -->
-    <select id="getMonkeysRangeByIdWithMappedParamNames" resultType="entity.Monkey">
+    <select id="getMonkeysRangeByIdWithMappedParamNames" resultType="com.github.fish56.mybatis.entity.Monkey">
       select * from monkey
       where id > ${min} and #{max} > id
     </select>
@@ -45,12 +45,12 @@
          ${} 相当于字符替换；#{}则是preparedStatement的占位符
     -->
 
-    <select id="getOneMonkeyFromRangeById" resultType="entity.Monkey">
+    <select id="getOneMonkeyFromRangeById" resultType="com.github.fish56.mybatis.entity.Monkey">
       select * from monkey
       where id > ${min} and #{max} > id
     </select>
 
-    <select id="getMonkeysByIds" resultType="entity.Monkey">
+    <select id="getMonkeysByIds" resultType="com.github.fish56.mybatis.entity.Monkey">
       select * from monkey
       where id = #{list[0]} or id = #{list[1]}
     </select>

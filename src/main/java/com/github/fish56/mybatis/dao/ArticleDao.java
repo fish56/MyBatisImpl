@@ -1,6 +1,6 @@
-package dao;
+package com.github.fish56.mybatis.dao;
 
-import entity.Article;
+import com.github.fish56.mybatis.entity.Article;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;

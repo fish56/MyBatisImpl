@@ -1,6 +1,7 @@
-package entity;
+package com.github.fish56.mybatis.mybatis.entity;
 
 import com.alibaba.fastjson.JSONObject;
+import com.github.fish56.mybatis.entity.Monkey;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -11,7 +12,6 @@ import org.junit.Test;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.List;
 
 public class MonkeyCacheTest {
     private static SqlSessionFactory factory;
@@ -56,7 +56,7 @@ public class MonkeyCacheTest {
 
         Monkey newMonkey = new Monkey();
         newMonkey.setName("Sun WuKong");
-        session.insert("entity.Monkey.insertMonkey", newMonkey);
+        session.insert("Monkey.insertMonkey", newMonkey);
         // 增删改会导致缓存失效
 
         Monkey monkey2 = session.selectOne("selectMonkey", 1);
