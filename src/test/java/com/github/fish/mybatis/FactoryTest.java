@@ -1,7 +1,7 @@
-package com.github.fish56.mybatis.mybatis;
+package com.github.fish.mybatis;
 
-import com.github.fish56.mybatis.dao.ArticleDao;
-import com.github.fish56.mybatis.dao.MonkeyDao;
+import com.github.fish.mybatis.dao.ArticleDao;
+import com.github.fish.mybatis.dao.MonkeyDao;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -12,8 +12,10 @@ import org.junit.Test;
 import java.io.IOException;
 import java.io.InputStream;
 
-// 创建一个基础测试类，初始化环境
-//   其他测试类可以直接继承这个父类来获得环境配置
+/**
+ * 创建一个基础测试类，初始化环境
+ * 其他测试类可以直接继承这个父类来获得环境配置
+ */
 public class FactoryTest {
     protected MonkeyDao monkeyDao;
     protected ArticleDao articleDao;

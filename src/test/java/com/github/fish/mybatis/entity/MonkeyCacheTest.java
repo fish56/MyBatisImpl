@@ -1,7 +1,6 @@
-package com.github.fish56.mybatis.mybatis.entity;
+package com.github.fish.mybatis.entity;
 
 import com.alibaba.fastjson.JSONObject;
-import com.github.fish56.mybatis.entity.Monkey;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;

@@ -1,8 +1,8 @@
-package com.github.fish56.mybatis.mybatis.dao;
+package com.github.fish.mybatis.dao;
 
-import com.github.fish56.mybatis.mybatis.FactoryTest;
+import com.github.fish.mybatis.FactoryTest;
 import com.alibaba.fastjson.JSONObject;
-import com.github.fish56.mybatis.entity.Article;
+import com.github.fish.mybatis.entity.Article;
 import org.junit.Assert;
 import org.junit.Test;
 

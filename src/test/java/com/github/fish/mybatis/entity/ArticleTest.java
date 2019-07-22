@@ -1,7 +1,6 @@
-package com.github.fish56.mybatis.mybatis.entity;
+package com.github.fish.mybatis.entity;
 
 import com.alibaba.fastjson.JSONObject;
-import com.github.fish56.mybatis.entity.Article;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -31,8 +30,7 @@ public class ArticleTest {
 
         Article article = session.selectOne("selectArticle", 2);
         System.out.println(JSONObject.toJSONString(article));
-        // {"author":{"id":1,"name":"Jon Snow"},
-        // "content":"dd","id":2,"title":"a title"}
+        // {"author":{"id":1,"name":"Jon Snow"},"content":"dd","id":2,"title":"a title"}
 
         session.close();
     }

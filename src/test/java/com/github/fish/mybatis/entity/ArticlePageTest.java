@@ -1,7 +1,6 @@
-package com.github.fish56.mybatis.mybatis.entity;
+package com.github.fish.mybatis.entity;
 
 import com.alibaba.fastjson.JSONObject;
-import com.github.fish56.mybatis.entity.Article;
 import com.github.pagehelper.PageHelper;
 import org.apache.ibatis.session.SqlSession;
 import org.junit.Test;

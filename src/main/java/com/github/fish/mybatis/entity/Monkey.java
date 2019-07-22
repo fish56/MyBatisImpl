@@ -1,4 +1,4 @@
-package com.github.fish56.mybatis.entity;
+package com.github.fish.mybatis.entity;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;

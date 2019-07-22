@@ -3,10 +3,10 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.github.fish56.mybatis.dao.ArticleDao">
+<mapper namespace="com.github.fish.mybatis.dao.ArticleDao">
     <!-- 动态SQL语句 -->
-    <select id="getArticleWithCondition" parameterType="com.github.fish56.mybatis.entity.Article"
-            resultType="com.github.fish56.mybatis.entity.Article">
+    <select id="getArticleWithCondition" parameterType="com.github.fish.mybatis.entity.Article"
+            resultType="com.github.fish.mybatis.entity.Article">
       select * from article
       <where>
           <if test="title != null and title != ''">
@@ -18,14 +18,14 @@
       </where>
     </select>
 
-    <select id="getArticleListWithOrderAndPage" resultType="com.github.fish56.mybatis.entity.Article">
+    <select id="getArticleListWithOrderAndPage" resultType="com.github.fish.mybatis.entity.Article">
         select * from article
         order by #{orderByField} desc
         limit #{limit}
         offset #{offset}
     </select>
 
-    <update id="updateArticlesWithCondition" parameterType="com.github.fish56.mybatis.entity.Article">
+    <update id="updateArticlesWithCondition" parameterType="com.github.fish.mybatis.entity.Article">
         update article
         <set>
             <if test="title != null">
@@ -44,7 +44,7 @@
     </select>
 
     <select id="selectArticlesByIds" parameterType="java.util.List"
-            resultType="com.github.fish56.mybatis.entity.Article">
+            resultType="com.github.fish.mybatis.entity.Article">
         select * from article
         where id in
         <foreach item="item" index="index" collection="list"
