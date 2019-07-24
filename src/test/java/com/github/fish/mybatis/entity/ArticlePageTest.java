@@ -1,24 +1,35 @@
 package com.github.fish.mybatis.entity;
 
 import com.alibaba.fastjson.JSONObject;
-import com.github.pagehelper.PageHelper;
+import org.apache.ibatis.session.RowBounds;
 import org.apache.ibatis.session.SqlSession;
 import org.junit.Test;
 
 import java.util.List;
 
 public class ArticlePageTest extends FactoryTest{
-    // 查询一组记录
+    /**
+     * 不使用分页
+     */
     @Test
     public void selectList(){
         SqlSession session = factory.openSession();
-        // 开启分页
-        PageHelper.startPage(2, 2);
+
         List<Article> articles = session.selectList("selectArticles");
         System.out.println(JSONObject.toJSONString(articles));
 
-        // 查询结果是分页的了
-        // "content":"dd","id":2,"title":"a title"}]
+        session.close();
+    }
+
+    /**
+     * 使用分页，这里直接传递一个RowBounds就行了
+     */
+    @Test
+    public void page(){
+        SqlSession session = factory.openSession();
+
+        List<Article> articles = session.selectList("selectArticles", null, new RowBounds(2,2));
+        System.out.println(JSONObject.toJSONString(articles));
 
         session.close();
     }

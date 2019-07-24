@@ -4,6 +4,7 @@
         "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <!-- MyBatis配置文件 -->
 <configuration>
+
     <!-- 定义全局变量 -->
     <properties resource="jdbc.properties">
         <!--👆的是加载外部的properties文件 -->
@@ -22,6 +23,17 @@
     <typeAliases>
         <typeAlias type="java.lang.Integer" alias="Integer"/>
     </typeAliases>
+
+    <plugins>
+        <!-- 自定义的插件 -->
+        <plugin interceptor="com.github.fish.mybatis.plugin.MyPlugin">
+            <property name="name" value="Jon"/>
+        </plugin>
+        <plugin interceptor="com.github.pagehelper.PageInterceptor">
+            <!-- config params as the following -->
+            <property name="param1" value="value1"/>
+        </plugin>
+    </plugins>
 
     <!-- 可以同时配置多个环境下设置 -->
     <environments default="development">
